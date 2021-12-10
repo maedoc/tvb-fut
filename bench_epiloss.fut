@@ -93,6 +93,6 @@ let main [n] (nt:i64) (z:[n]f32) (zh:[n]f32) (w:[n][n]f32) (mode:i64): [n]f32 =
   case 0i64 -> loss nt dt w z zh |> replicate n
   case 1i64 -> vjp_loss nt dt w z zh
   case 2i64 -> jvp_loss nt dt w z zh
-  case 1i64 -> vjp_loss_online nt dt w z zh
-  case 2i64 -> jvp_loss_online nt dt w z zh
+  case 3i64 -> vjp_loss_online nt dt w z zh
+  case 4i64 -> jvp_loss_online nt dt w z zh
   case _ -> replicate n 0f32
