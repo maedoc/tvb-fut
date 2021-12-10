@@ -1,6 +1,9 @@
 -- | Some useful statistics
 
-
+let std [n] (xs:[n]f32): f32 =
+    let mu = (reduce (+) 0f32 xs) / (f32.i64 n)
+    let n_var = map (\x -> (x - mu)*(x - mu)) xs |> reduce (+) 0f32
+    in f32.sqrt (n_var / (f32.i64 n))
 
 
 -- Welford online variance
