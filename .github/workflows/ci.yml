@@ -8,7 +8,7 @@ jobs:
 
       - uses: actions/checkout@v1
 
-      - run: pip install scipy
+      - run: pip install scipy shtns sympy
 
       - uses: actions/cache@v2
         id: cache-futhark

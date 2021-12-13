@@ -1,5 +1,5 @@
+-- | The hard work is done in the modules over here:
 import "lib/github.com/maedoc/tvb-fut/fft-modrecur"
-
 
 -- mkfft2n fft128 causes OpenCL drivers to crash
 -- so we use an array version instead
@@ -23,7 +23,5 @@ entry main128 (M:i64) =
 
 -- about half speed of genfut.py version, but it's doing full complex fft
 -- so the input (128x256) is twice as large ~2MB vs ~1MB.
-
 -- would be work doing an rfft variant with real input data
-
 -- worse, tho is that it appears too large to function on NVIDIA OpenCL (3MB .c file!)
