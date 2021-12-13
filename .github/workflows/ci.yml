@@ -1,10 +1,22 @@
-name: GitHub Actions Demo
+name: run tests
 on: [push]
+
 jobs:
   tests:
     runs-on: ubuntu-latest
     steps:
-      - run: pip install scipy
-      - run: git clone https://github.com/diku-dk/futhark && cd futhark && stack setup && stack build && stack install
-      - run: python test_pmn.py
 
+      - run: pip install scipy
+
+      - uses: actions/cache@v2
+        id: cache-futhark
+        with:
+          path: futhark
+          key: clean-ad
+
+      - run: make futhark
+        if: steps.cache-futhark.outputs.cache-hit != 'true'
+
+      - run: cd futhark && stack install
+
+      - run: python test_pmn.py
