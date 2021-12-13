@@ -1,10 +1,10 @@
 import numpy as np
 from futhark_ffi import Futhark
 import os
-os.system('futhark c --library modrecur.fut')
-os.system('build_futhark_ffi modrecur')
-import _modrecur
-fft = Futhark(_modrecur)
+os.system('futhark c --library test_fft_modrecur.fut')
+os.system('build_futhark_ffi test_fft_modrecur')
+import _test_fft_modrecur
+fft = Futhark(_test_fft_modrecur)
 
 N = 128
 z = np.random.randn(128).astype(np.complex64)

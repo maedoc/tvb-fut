@@ -5,3 +5,5 @@ tmp/
 *.c
 *.so
 *.o
+*.h
+*.json
